@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .foo{
+        width: 50px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 5px;
+    }
+</style>
+<body>
+    
+    <img src="https://i1.mifile.cn/a4/xmad_15578089659428_Uywcg.jpg" alt="">
+    
+    <script>
+        var img = document.querySelector('img')
+        img.addEventListener('contextmenu',function(e){
+
+            var tips = document.querySelectorAll('.foo')          
+            for(var t of tips) {    
+                t.parentElement.removeChild(t)
+            }
+            e.preventDefault()
+            var span = document.createElement('span')
+            span.textContent = '别点我'
+            span.tabIndex = "3"
+            span.classList.add('foo')
+            span.style.left = e.pageX + 'px'
+            span.style.top = e.pageY + 'px'
+
+            document.body.appendChild(span)
+
+            span.addEventListener('blur', e => {
+              
+                span.parentElement.removeChild(span)
+            })
+            span.focus()
+        
+        })
+    </script>
+</body>
+</html>
