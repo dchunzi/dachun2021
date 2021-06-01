@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ios-check</title>
+</head>
+<style>
+    input{
+        display: none;
+    }
+    label{
+        box-sizing: border-box;
+        display: block;
+        padding: 5px;
+        width: 260px;
+        height: 160px;
+        border-radius: 80px;
+        border: 2px solid #30f34c;
+        transition: 0.6s;
+    }
+    div{
+        width: 146px;
+        height: 146px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 5px  #666;
+        background-color:white;
+        transition: 0.6s;
+    }
+
+    input:checked + label > div{
+        margin-left: 100px;     
+    }
+    input:checked + label{
+        box-shadow: 0 0 0 80px #30f341 inset;
+    }
+    
+</style>
+<body>
+    <input type="checkbox" id='ios'>
+    <label for="ios">
+        <div></div>
+    </label>
+
+</body>
+</html>
