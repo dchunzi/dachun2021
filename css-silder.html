@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css实现silder</title>
+</head>
+<style>
+.main{
+    margin: auto;
+    box-sizing: border-box;
+    width: 1230px;
+    height: 460px;
+    position: relative;
+}
+.bottom-lable {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0;  
+}
+.bottom-lable label{
+    display: inline-block;
+    cursor: pointer;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    z-index: 10;
+    border: 1px solid yellow;
+    margin: 0 6px;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+input:checked + a > img{
+    opacity: 1;
+}
+
+input:nth-of-type(1):checked ~ .bottom-lable > label:nth-child(1),
+input:nth-of-type(2):checked ~ .bottom-lable > label:nth-child(2),
+input:nth-of-type(3):checked ~ .bottom-lable > label:nth-child(3),
+input:nth-of-type(4):checked ~ .bottom-lable > label:nth-child(4),
+input:nth-of-type(5):checked ~ .bottom-lable > label:nth-child(5){
+    background-color:red;
+}
+
+
+.left label, .right label{
+    top:0;
+    bottom:0;
+    margin: auto;
+    position: absolute;
+    width: 40px;
+    height: 70px;
+    font-size: 30px;
+    line-height: 70px;
+    text-align: center;
+    z-index: 20;
+    display: none;
+}
+.right label{
+    right: 0;
+}
+
+input:nth-of-type(1):checked ~ .right :nth-child(2),
+input:nth-of-type(2):checked ~ .right :nth-child(3),
+input:nth-of-type(3):checked ~ .right :nth-child(4),
+input:nth-of-type(4):checked ~ .right :nth-child(5),
+input:nth-of-type(5):checked ~ .right :nth-child(1){
+    display: block;
+}
+
+input:nth-of-type(1):checked ~ .left :nth-child(5),
+input:nth-of-type(2):checked ~ .left :nth-child(1),
+input:nth-of-type(3):checked ~ .left :nth-child(2),
+input:nth-of-type(4):checked ~ .left :nth-child(3),
+input:nth-of-type(5):checked ~ .left :nth-child(4){
+    display: block;
+}
+
+div.left > label:hover,
+div.right > label:hover{
+    background-color: rgba(13,28,98,0.7);
+}
+
+</style>
+<body>
+    <div class="main">
+        <input checked type="radio" name='小米' id='one'>
+        <a href="https://dchunzi.github.io/miao/mi/" target="_blank">
+            <img src="https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg" >
+        </a>
+        <input type="radio" name='小米' id='two'>
+        <a href="https://dchunzi.github.io/miao/mi/" target="_blank">
+            <img src="https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg" ">
+        </a>
+        <input checked type="radio" name='小米' id='three'>
+        <a href="https://dchunzi.github.io/miao/mi/" target="_blank">
+            <img src="https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg" >
+        </a>
+        <input checked type="radio" name='小米' id='four'>
+        <a href="https://dchunzi.github.io/miao/mi/" target="_blank">
+            <img src="https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg" >
+        </a>
+        <input checked type="radio" name='小米' id='five' >
+        <a href="https://dchunzi.github.io/miao/mi/" target="_blank">
+            <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" >
+        </a>
+        <div class='bottom-lable'>
+            <label for="one"></label>
+            <label for="two"></label>
+            <label for="three"></label>
+            <label for="four"></label>
+            <label for="five"></label>
+        </div>
+        <div class='left'>
+            <label for="one"><</label>
+            <label for="two"><</label>
+            <label for="three"><</label>
+            <label for="four"><</label>
+            <label for="five"><</label>
+        </div>
+        <div class='right'>
+            <label for="one">></label>
+            <label for="two">></label>
+            <label for="three">></label>
+            <label for="four">></label>
+            <label for="five">></label>
+        </div>
+    </div>
+</body>
+</html> 
